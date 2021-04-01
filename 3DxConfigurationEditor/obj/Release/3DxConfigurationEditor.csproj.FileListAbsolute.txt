@@ -14,3 +14,17 @@ D:\Developpement\3dxConfigurator\3DxConfigurationEditor\3DxConfigurationEditor\o
 D:\Developpement\3dxConfigurator\3DxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor.csproj.CoreCompileInputs.cache
 D:\Developpement\3dxConfigurator\3DxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor.exe
 D:\Developpement\3dxConfigurator\3DxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor.pdb
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\bin\Release\3DxConfigurationEditor.exe.config
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\bin\Release\3DxConfigurationEditor.exe
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\bin\Release\3DxConfigurationEditor.pdb
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\MainWindow.Edit.g.cs
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\App.g.cs
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor_MarkupCompile.cache
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor_MarkupCompile.lref
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\MainWindow.Edit.baml
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor.g.resources
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\_3DxConfigurationEditor.Properties.Resources.resources
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor.csproj.GenerateResource.cache
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor.csproj.CoreCompileInputs.cache
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor.exe
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Release\3DxConfigurationEditor.pdb

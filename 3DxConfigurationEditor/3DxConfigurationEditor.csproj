@@ -59,24 +59,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.Create.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Objects\ButtonAction.cs" />
     <Compile Include="HIDTable.cs" />
     <Compile Include="KeyWithAction.cs" />
+    <Compile Include="Objects\MacroEntry.cs" />
     <Compile Include="MainWindow.Edit.xaml.cs">
       <DependentUpon>MainWindow.Edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="XMLEditor.cs" />
-    <Compile Include="MainWindow.Create.xaml.cs">
-      <DependentUpon>MainWindow.Create.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

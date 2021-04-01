@@ -1,21 +1,10 @@
-﻿using Microsoft.Win32;
+﻿using _3DxConfigurationEditor.Objects;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml;
 
 namespace _3DxConfigurationEditor
 {
@@ -25,16 +14,24 @@ namespace _3DxConfigurationEditor
     public partial class MainWindowEdit : Window
     {
 
-
+        /// <summary>
+        /// Ctor
+        /// </summary>
         public MainWindowEdit()
         {
             InitializeComponent();
             this.Editor = new XMLEditor(string.Empty);
         }
 
+        /// <summary>
+        /// The XML Editor
+        /// </summary>
         public XMLEditor Editor { get; set; }
 
-
+        /// <summary>
+        /// True if all required field to edit macro are filled
+        /// </summary>
+        /// <returns></returns>
         private bool CanAccept()
         {
             if (!this.IsLoaded) return false;
@@ -42,7 +39,6 @@ namespace _3DxConfigurationEditor
                 return false;
             if (string.IsNullOrWhiteSpace(this.ComboMacro.Text))
                 return false;
-
             if (string.IsNullOrWhiteSpace(this.TextBoxImageFilePath.Text))
                 return false;
 
@@ -51,33 +47,44 @@ namespace _3DxConfigurationEditor
             return true;
         }
 
+        /// <summary>
+        /// Update hte AddIcon status
+        /// </summary>
         private void updateValidation()
         {
             if (!this.IsLoaded) return;
             this.AddIconButton.IsEnabled = this.CanAccept();
         }
 
+        /// <summary>
+        /// Fille the macro combobox
+        /// </summary>
         private void LoadMacro()
         {
             this.ComboMacro.Items.Clear();
-            string path = this.FilePathTextBox.Text;
-            if (!System.IO.File.Exists(path))
+
+            if (!Editor.HasLoadedFile)
                 return;
 
-            XMLEditor editor = new XMLEditor(path);
-            List<String> existingMacros = editor.GetExistingMacros();
-            foreach (string macroName in existingMacros)
+            foreach (MacroEntry macro in Editor.Macros)
             {
-                this.ComboMacro.Items.Add(macroName);
+                this.ComboMacro.Items.Add(macro);
             }
             if (this.ComboMacro.Items.Count>0)
                 this.ComboMacro.SelectedIndex = 0;
         }
 
         #region Events
+        /// <summary>
+        /// Open a diloag to browse to the configuration file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = "%AppData%\\3Dconnexion\\3DxWare\\Cfg";
+
             dialog.RestoreDirectory = true;
             dialog.Filter = "xml files (*.xml)|*.xml";
             bool? dialogResult = dialog.ShowDialog();
@@ -87,6 +94,11 @@ namespace _3DxConfigurationEditor
             }
         }
 
+        /// <summary>
+        /// Open a dialog to browse to an the image file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BrowseImageButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -108,18 +120,33 @@ namespace _3DxConfigurationEditor
             this.updateValidation();
         }
 
+        /// <summary>
+        /// Update the editor upon file path change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FilePathTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!this.IsLoaded)
                 return;
             this.Editor.FilePath = this.FilePathTextBox.Text;
+            if (!this.Editor.Load(out string error))
+            {
+                MessageBox.Show("Could not open the specified file: " + error, "File error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             this.updateValidation();
             this.LoadMacro();
         }
 
+        /// <summary>
+        /// Update the configuration file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddIconButton_Click(object sender, RoutedEventArgs e)
         {
-            string macroID = this.ComboMacro.Text;
+            MacroEntry macroID = this.ComboMacro.SelectedItem as MacroEntry;
             string imagePath = this.TextBoxImageFilePath.Text;
 
             if (!this.Editor.AddButtonAction(macroID, imagePath))
@@ -127,15 +154,30 @@ namespace _3DxConfigurationEditor
                 MessageBox.Show("Something went wrong. The icon has not been added", "Failure", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
+            {
                 MessageBox.Show("Icon added succesfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Editor.Load(out _);
+            }
+                
         }
-
-
-        #endregion
 
         private void ComboMacro_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.updateValidation();
+            ButtonAction buttonFromMacro = Editor.GetButtonActionFromMacro(this.ComboMacro.SelectedItem as MacroEntry);
+            if (buttonFromMacro is null)
+                return;
+
+            if (buttonFromMacro.HasImage)
+            {
+                Uri fileUri = new Uri(buttonFromMacro.ImageSource);
+                this.CurrentImage.Source = new BitmapImage(fileUri);
+            }
+
+
         }
+        #endregion
+
+
     }
 }

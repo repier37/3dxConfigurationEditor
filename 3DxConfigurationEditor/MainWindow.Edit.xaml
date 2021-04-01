@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_3DxConfigurationEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="309.227" Width="359.752">
+        Title="3dx Macro icon maker" Height="309.227" Width="359.752">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -34,16 +34,22 @@
                 <TextBlock>Add Image Macro</TextBlock>
             </GroupBox.Header>
             <StackPanel>
-                <TextBlock>Select existing macro:</TextBlock>
-                <ComboBox x:Name="ComboMacro" Margin="0,5" HorizontalAlignment="Left" Width="147" IsReadOnly="True" SelectionChanged="ComboMacro_SelectionChanged" />
-                <TextBlock>Image:</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock>Select existing macro:</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Name="ComboMacro" Margin="0,5" HorizontalAlignment="Left" Width="147" IsReadOnly="True" SelectionChanged="ComboMacro_SelectionChanged" />
+                        <Image x:Name="CurrentImage" HorizontalAlignment="Left" Height="24" Margin="5" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock>New image:</TextBlock>
                 <StackPanel Orientation="Horizontal">
                     <Image x:Name="ImagePreview" HorizontalAlignment="Left" Height="24" Margin="5" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
                     <TextBox x:Name="TextBoxImageFilePath"  Margin ="0,0" Height="20" Width="174" IsReadOnly="True" TextChanged="TextBoxImageFilePath_TextChanged"/>
                     <Button x:Name="BrowseImageButton"  Content="Browse" Margin="10,10" Width="100" Click="BrowseImageButton_Click"/>
                 </StackPanel>
                 <Button x:Name="AddIconButton" Click="AddIconButton_Click" IsEnabled="False">Add icon</Button>
-
             </StackPanel>
         </GroupBox>
 
