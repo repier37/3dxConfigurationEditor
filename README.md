@@ -17,6 +17,11 @@ The program has 1 window:
 
 The macro must have been created using the 3dx smart UI first.
 
+After adding icons, the macro will be found under the app folder name :
+![VueEditeur3Dx](https://user-images.githubusercontent.com/28806724/113345997-893ca400-9333-11eb-901a-0ce2f7310efc.png)
+
+
+
 ## Get the tool
 - Download the file 3DxConfigurationEditor, then run it.
 
