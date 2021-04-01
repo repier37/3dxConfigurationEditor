@@ -20,7 +20,7 @@ using System.Xml;
 namespace _3DxConfigurationEditor
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Window used to add an icon to an existing macro
     /// </summary>
     public partial class MainWindowEdit : Window
     {
