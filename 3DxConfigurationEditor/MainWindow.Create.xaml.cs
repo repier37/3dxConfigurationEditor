@@ -20,7 +20,7 @@ using System.Xml;
 namespace _3DxConfigurationEditor
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Not used anymore, this window should be able to create a macro entirely, but can not get the correct HID value for Qwerty AND Azerty KB layout
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -36,7 +36,7 @@ namespace _3DxConfigurationEditor
         private List<KeyWithAction> Sequence;
 
 
-
+        
         private bool CanAccept()
         {
             if (!this.IsLoaded) return false;
