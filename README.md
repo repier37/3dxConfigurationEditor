@@ -10,7 +10,7 @@ The program has 1 window:
 ![image](https://user-images.githubusercontent.com/28806724/113344529-79bc5b80-9331-11eb-932a-34db0f521ccc.png)
   - [DriverInstallDir]\3DConnexion\3DxWinCore64\Cfg => default configuration files provided by 3Dx
 
-- Select existing macro: After a configuration fil has been selected, this combo list the existing macros
+- Select existing macro: After a configuration file has been selected, this combo list the existing macros
 - Image : Allow the user to select an image to associate with the macro A preview of this image is shown.
 - Add icon => will modify the configuration file to asociate the selected macro with the selected image
 
@@ -23,7 +23,8 @@ After adding icons, the macro will be found under the app folder name :
 
 
 ## Get the tool
-- Download the file 3DxConfigurationEditor, then run it.
+- The last release can be downloaded in the release
+- The last build can be found in "3DxConfigurationEditor/bin/Release/"
 
 ## Compile
 - Download the source
