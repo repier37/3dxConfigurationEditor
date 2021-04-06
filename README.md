@@ -1,5 +1,7 @@
 # SpaceMouse Macro icons maker
 This program allows to add icon to existing macro on the space mouse devices by 3Dconnexion.
+If you found this tool useful you can thank me via donation : 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=GR74XEN538Y7L)
 
 ## How it works
 The program has 1 window:
