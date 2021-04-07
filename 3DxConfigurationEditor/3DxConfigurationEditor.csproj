@@ -70,7 +70,10 @@
     <Compile Include="MainWindow.Edit.xaml.cs">
       <DependentUpon>MainWindow.Edit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="XMLEditor.cs" />
+    <Compile Include="SettingsParser\SettingParser.cs" />
+    <Compile Include="SettingsParser\TopSolidCommand.cs" />
+    <Compile Include="SettingsParser\TopSolidSettingsParser.cs" />
+    <Compile Include="TdxSettingsEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

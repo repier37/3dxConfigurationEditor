@@ -5,17 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_3DxConfigurationEditor"
         mc:Ignorable="d"
-        Title="3dx Macro icon maker" Height="309.227" Width="359.752">
-    <Grid>
+        Title="3dx Macro icon maker" SizeToContent="WidthAndHeight" Height="auto" Width="auto">
+    <Grid Width="661">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <GroupBox Margin="6,5,-133,5" Height ="auto" Grid.Row="0" >
+        <GroupBox Height ="auto" Width="auto" Grid.Row="0" >
             <GroupBox.Header>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontWeight="Bold">Configuration File</TextBlock>
@@ -29,7 +31,7 @@
                 </StackPanel>
             </StackPanel>
         </GroupBox>
-        <GroupBox Margin="6,5,-133,5" Height="auto" Grid.Row="1">
+        <GroupBox Height="auto" Width="auto" Grid.Row="1">
             <GroupBox.Header>
                 <TextBlock>Add Image Macro</TextBlock>
             </GroupBox.Header>
@@ -50,6 +52,40 @@
                     <Button x:Name="BrowseImageButton"  Content="Browse" Margin="10,10" Width="100" Click="BrowseImageButton_Click"/>
                 </StackPanel>
                 <Button x:Name="AddIconButton" Click="AddIconButton_Click" IsEnabled="False">Add icon</Button>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Height="auto" Width="auto" Grid.Row="2">
+            <GroupBox.Header>
+                <TextBlock>Add Macro</TextBlock>
+            </GroupBox.Header>
+            <StackPanel Margin="5">
+                <TextBlock>Name:</TextBlock>
+                <TextBox x:Name="TextBlockMacroName" Margin="0,5,159,0"></TextBox>
+                <TextBlock >Key:</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="TextBoxMacroKey" TextWrapping ="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Margin="0,5" MaxLength="1" TextChanged="TextBoxMacroKey_TextChanged"  KeyUp="TextBoxMacroKey_KeyUp" KeyDown="TextBoxMacroKey_KeyDown" Width="173" Height="53"></TextBox>
+                    <Button x:Name="ClearMacro"  Content="Clear" Margin="10,10" Width="100" Click="ClearMacro_Click" Height="20"/>
+                </StackPanel>
+                <Button x:Name="AddMacro" Click="AddMacroButton_Click" IsEnabled="False">Add macro</Button>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Height ="auto" Width="auto" Grid.Row="0" Grid.Column="1" Margin="0,0,0,125" Grid.RowSpan="2">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontWeight="Bold">Configuration File</TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <StackPanel Margin="5,5">
+                <StackPanel>
+                    <TextBlock>File path:</TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <TextBox x:Name="ConfigFilePath" Width="167" IsReadOnly="True" TextChanged="FilePathTextBox_TextChanged" Text="" HorizontalAlignment="Left"/>
+                        <Button x:Name="BrowseButtonFilePath" Margin="10,0,0,0" Content="Browse" Width="100" Click="BrowseButtonFilePath_Click" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                    <Button x:Name="ParseTs" Click="ParseTs_Click" Height="20">Parse</Button>
+                </StackPanel>
+
             </StackPanel>
         </GroupBox>
 

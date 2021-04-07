@@ -29,3 +29,4 @@ D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Debug\3DxConf
 D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Debug\3DxConfigurationEditor.csproj.CoreCompileInputs.cache
 D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Debug\3DxConfigurationEditor.exe
 D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Debug\3DxConfigurationEditor.pdb
+D:\Developpement\3dxConfigurationEditor\3DxConfigurationEditor\obj\Debug\3DxConfigurationEditor.csprojAssemblyReference.cache
